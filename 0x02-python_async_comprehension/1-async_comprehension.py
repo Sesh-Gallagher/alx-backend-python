@@ -5,15 +5,15 @@ and then write a coroutine called async_comprehension
 """
 
 import asyncio
-import random
-from typing import Generator
+from typing import List
 
 
-async def async_generator() -> Generator[float, None, None]:
+async_generator = __import__('0-async_generator').async_generator
+
+
+async def async_comprehension() -> List[float]:
     """
     coroutine will collect 10 random numbers
     using an async comprehensing over async_generator
     """
-    for a in range(10):
-        await asyncio.sleep(1)
-        yield random.unform(0, 10)
+    return ([ a async for a in async_generator()])
