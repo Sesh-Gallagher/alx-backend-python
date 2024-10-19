@@ -5,7 +5,7 @@ time of a function
 """
 
 import asyncio
-from time import perf_counter
+import time
 
 wait_n = __import__('1-concurrent_coroutines').wait_n
 
@@ -19,7 +19,8 @@ def measure_time(n: int, max_delay: int) -> float:
     returns: time elapsed in seconds
     """
 
-    start = perf_counter()
+    start = time.perf_counter()
     asyncio.run(wait_n(n, max_delay))
-    Total_time = perf_counter() - start
-    return Total_time / n
+    stop = time.perf_counter()
+    Time_elapsed = stop - start
+    return Time_elapsed / n
