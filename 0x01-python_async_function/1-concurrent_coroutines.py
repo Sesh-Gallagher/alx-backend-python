@@ -6,12 +6,17 @@ n times witha specific delay between each call
 
 from typing import List
 import asyncio
+import random
+
+wait_random = __import__('0-basic_async_syntax').wait_random
 
 
 async def wait_n(n: int, max_delay: int) -> List[float]:
     """
-    Args: n
+    Args: max_delay: max wait
+          n: spawn func
 
+    Return: float time random
     """
 
     task = [asyncio.create_task(wait_random(max_delay)) for i in range(n)]
