@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Module that represents a method that returns a task"""
+"""
+Module that represents a function task_wait_random which
+takes integer argument max_delay and return a asyncio.task
+"""
 import asyncio
 
 wait_random = __import__('0-basic_async_syntax').wait_random
